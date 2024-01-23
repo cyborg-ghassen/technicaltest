@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav } from 'react-bootstrap';
 import classNames from 'classnames';
-import AppContext from 'context/Context';
-import Logo from 'components/common/Logo';
+import AppContext from '../../../context/Context';
+import Logo from '../../common/Logo';
 import NavbarTopDropDownMenus from './NavbarTopDropDownMenus';
-import { navbarBreakPoint, topNavbarBreakpoint } from 'config';
+import { navbarBreakPoint, topNavbarBreakpoint } from '../../../config';
 import TopNavRightSideNavItem from './TopNavRightSideNavItem';
 import { useLocation } from 'react-router-dom';
 
@@ -45,7 +45,7 @@ const NavbarTop = () => {
 
   return (
     <Navbar
-      className={classNames('navbar-glass fs--1 navbar-top sticky-kit', {
+      className={classNames('navbar-glass fs--1 navbar-top bg-light sticky-kit', {
         // 'navbar-glass-shadow': showDropShadow
         'navbar-glass-shadow': showDropShadow && !isChat
       })}
@@ -127,6 +127,8 @@ const NavbarTopElements = ({
           </Nav>
         </Navbar.Collapse>
       )}
+
+      <h4 className={"text-primary ms-2"}>Requests</h4>
       <TopNavRightSideNavItem />
     </>
   );

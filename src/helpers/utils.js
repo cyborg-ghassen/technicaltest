@@ -17,3 +17,5 @@ export const getItemFromStore = (key, defaultValue, store = localStorage) => {
 
 export const setItemToStore = (key, payload, store = localStorage) =>
     store.setItem(key, payload);
+
+export const isIterableArray = array => Array.isArray(array) && !!array.length;

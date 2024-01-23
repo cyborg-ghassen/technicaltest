@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Card, Dropdown, ListGroup } from 'react-bootstrap';
-import CardHeader from 'components/common/CardHeader';
+import CardHeader from '../../common/CardHeader';
 
 const NotificationDropdown = () => {
   // State
@@ -34,7 +34,7 @@ const NotificationDropdown = () => {
         as={Link}
         to="#!"
         className={classNames('px-0 nav-link', {
-          'notification-indicator notification-indicator-primary': !isAllRead
+          '': !isAllRead
         })}
       >
         <FontAwesomeIcon icon="bell" transform="shrink-6" className="fs-4" />

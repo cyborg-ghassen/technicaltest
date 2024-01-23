@@ -1,7 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import {Navigate, Outlet, useLocation} from 'react-router-dom';
 import AppContext from '../context/Context';
 import NavbarVertical from '../components/navbar/vertical/NavbarVertical';
+import NavbarTop from "../components/navbar/top/NavbarTop";
+import classNames from "classnames";
+import Footer from "../components/footer/Footer";
 
 const MainLayout = () => {
   const { hash, pathname } = useLocation();
@@ -30,11 +33,17 @@ const MainLayout = () => {
   if (!isAuthenticated) return <Navigate to={'/'} replace />;
 
   return (
-    <div className={isFluid ? 'container-fluid' : 'container'}>
-      {(navbarPosition === 'vertical' || navbarPosition === 'combo') && (
-        <NavbarVertical />
-      )}
-    </div>
+      <div className={isFluid ? 'container-fluid' : 'container'}>
+        {(navbarPosition === 'vertical' || navbarPosition === 'combo') && (
+            <NavbarVertical />
+        )}
+        <div className={classNames('content bg-secondary')}>
+          <NavbarTop/>
+          {/*------ Main Routes ------*/}
+          <Outlet/>
+          <Footer />
+        </div>
+      </div>
   );
 };
 

@@ -5,6 +5,8 @@ import ErrorLayout from '../layouts/ErrorLayout';
 import Error404 from '../pages/errors/Error404';
 import Error500 from '../pages/errors/Error500';
 import MainLayout from "../layouts/MainLayout";
+import Requests from "../pages/requests/Requests";
+import Overview from "../pages/overview/Overview";
 
 const MyRoutes = () => {
     return (
@@ -15,7 +17,8 @@ const MyRoutes = () => {
             </Route>
             {/* //--- MainLayout Starts  */}
             <Route element={<MainLayout />}>
-
+                <Route path={"/"} element={<Overview />} />
+                <Route path={"/requests"} element={<Requests />} />
             </Route>
             {/* //--- MainLayout end  */}
 

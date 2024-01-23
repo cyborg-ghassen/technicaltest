@@ -8,9 +8,6 @@ import NavbarVerticalMenuItem from './NavbarVerticalMenuItem';
 
 const CollapseItems = ({ route }) => {
   const { pathname } = useLocation();
-  const {
-    config: { group },
-  } = useContext(AppContext);
 
   const openCollapse = childrens => {
     const checkLink = children => {
@@ -27,7 +24,7 @@ const CollapseItems = ({ route }) => {
 
   const [open, setOpen] = useState(openCollapse(route.children));
 
-  return route.groups.some(name => group?.indexOf(name) !== -1) && (
+  return (
     <Nav.Item as="li">
       <Nav.Link
         onClick={() => {
@@ -61,7 +58,7 @@ CollapseItems.propTypes = {
 
 const NavbarVerticalMenu = ({ routes }) => {
   const {
-    config: { showBurgerMenu, group },
+    config: { showBurgerMenu },
     setConfig
   } = useContext(AppContext);
 
@@ -71,11 +68,9 @@ const NavbarVerticalMenu = ({ routes }) => {
     }
   };
 
-  console.log("Group: ", group)
   return routes.map(route => {
-    console.log("route:", route)
     if (!route.children) {
-      return route.groups.some(name => group?.indexOf(name) !== -1) && (
+      return (
         <Nav.Item as="li" key={route.name} onClick={handleNavItemClick}>
           <NavLink
             end={route.exact}

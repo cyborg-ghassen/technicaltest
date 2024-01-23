@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
-import avatar from 'assets/images/profile pic 48px.png';
-import Avatar from 'components/common/Avatar';
+import avatar from '../../../assets/images/profile pic 48px.png';
+import Avatar from '../../common/Avatar';
 import { toast } from 'react-toastify';
 
 const ProfileDropdown = () => {
@@ -23,17 +23,17 @@ const ProfileDropdown = () => {
 
       <Dropdown.Menu className="dropdown-caret dropdown-menu-card  dropdown-menu-end">
         <div className="bg-white rounded-2 py-2 dark__bg-1000">
-          <Dropdown.Item as={Link} to="/user/profile">
+          <Dropdown.Item as={Link} to="#">
             Profile &amp; account
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item as={Link} to="/user/settings">
+          <Dropdown.Item as={Link} to="#">
             Settings
           </Dropdown.Item>
           <Dropdown.Item
             as={Link}
             onClick={handleLogout}
-            to="/authentication/card/logout"
+            to="#"
           >
             Logout
           </Dropdown.Item>

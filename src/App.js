@@ -1,10 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
 import is from 'is_js';
 import AppContext from './context/Context';
 import Routes from './routes';
-import { CloseButton } from './components/common/Toast';
 
 const App = () => {
     const HTMLClassList = document.getElementsByTagName('html')[0].classList;
@@ -38,11 +36,6 @@ const App = () => {
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Routes />
-            <ToastContainer
-                closeButton={CloseButton}
-                icon={false}
-                position={toast.POSITION.BOTTOM_LEFT}
-            />
         </Router>
     );
 };

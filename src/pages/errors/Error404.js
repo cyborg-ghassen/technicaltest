@@ -13,14 +13,7 @@ const Error404 = () => {
                     The page you're looking for is not found.
                 </p>
                 <hr />
-                <p>
-                    Make sure the address is correct and that the page hasn't
-                    moved. If you think this is a mistake,
-                    <a href="mailto:info@exmaple.com" className="ms-1">
-                        contact us
-                    </a>
-                    .
-                </p>
+
                 <Link className="btn btn-primary btn-sm mt-3" to="/">
                     <FontAwesomeIcon icon={faHome} className="me-2" />
                     Take me home
