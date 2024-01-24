@@ -10,6 +10,7 @@ import AppContext, {RequestWizardContext} from 'context/Context';
 import IconButton from 'components/common/IconButton';
 import Flex from 'components/common/Flex';
 import {faBank} from "@fortawesome/free-solid-svg-icons";
+import PersonalForm from "./PersonalForm";
 
 const WizardLayout = ({variant, validation, progressBar}) => {
     const {isRTL} = useContext(AppContext);
@@ -29,6 +30,10 @@ const WizardLayout = ({variant, validation, progressBar}) => {
         {
             icon: 'lock',
             label: 'Rules Agreement'
+        },
+        {
+            icon: 'user',
+            label: 'General Details'
         },
         {
             icon: 'dollar-sign',
@@ -113,21 +118,26 @@ const WizardLayout = ({variant, validation, progressBar}) => {
                         <RulesForm register={register} errors={errors} watch={watch}/>
                     )}
                     {step === 2 && (
-                        <BillingForm
+                        <PersonalForm
                             register={register}
                             errors={errors}
                             setValue={setValue}
                         />
                     )}
                     {step === 3 && (
-                        <></>
+                        <BillingForm
+                            register={register}
+                            errors={errors}
+                            setValue={setValue}
+                        />
                     )}
                     {step === 4 && <></>}
+                    {step === 5 && <></>}
                 </Card.Body>
                 <Card.Footer
                     className={classNames('px-md-6 bg-light', {
-                        'd-none': step === 4,
-                        ' d-flex': step < 4
+                        'd-none': step === 5,
+                        ' d-flex': step < 5
                     })}
                 >
                     <IconButton
@@ -147,7 +157,19 @@ const WizardLayout = ({variant, validation, progressBar}) => {
                     <div className="ms-auto">
                         {step === 2 &&
                             <IconButton
-                                variant="secondary"
+                                variant="primary"
+                                type="submit"
+                                className="bg-primary text-white me-2"
+                                iconAlign="right"
+                                transform="down-1 shrink-4"
+                            >
+                                Proceed to Reimbursement
+                            </IconButton>
+                        }
+
+                        {step === 3 &&
+                            <IconButton
+                                variant="primary"
                                 type="submit"
                                 iconAlign="right"
                                 className="me-2"
@@ -163,7 +185,7 @@ const WizardLayout = ({variant, validation, progressBar}) => {
                             type="submit"
                             transform="down-1 shrink-4"
                         >
-                            Submit
+                            {step === 2 ? "Proceed to Payment" : 'Submit'}
                         </IconButton>
                     </div>
 

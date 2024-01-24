@@ -17,7 +17,7 @@ const MyRoutes = () => {
             </Route>
             {/* //--- MainLayout Starts  */}
             <Route element={<MainLayout />}>
-                <Route path={"/"} element={<Overview />} />
+                <Route path={"/"} element={<Navigate to={"/requests"} replace /> } />
                 <Route path={"/requests"} element={<Requests />} />
             </Route>
             {/* //--- MainLayout end  */}
