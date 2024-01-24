@@ -1,5 +1,7 @@
 /* required styles */
-
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
